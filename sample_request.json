@@ -1,0 +1,41 @@
+{
+  "OrderId": "1687665478",
+  "BuyerIdentifier": "0000000000",
+  "BuyerName": "Amego woocommerce",
+  "BuyerAddress": "address",
+  "BuyerPhoneNumber": "0123456789",
+  "BuyerEmailAddress": "invoice@gmail.com",
+  "ProductItem": [
+    {
+      "Description": "Product",
+      "Quantity": 2,
+      "UnitPrice": 30,
+      "Amount": 60,
+      "Remark": "",
+      "TaxType": "1"
+    },
+    {
+      "Description": "Product",
+      "Quantity": 2,
+      "UnitPrice": 30,
+      "Amount": 60,
+      "Remark": "",
+      "TaxType": "1"
+    },
+    {
+      "Description": "Product",
+      "Quantity": 2,
+      "UnitPrice": 30,
+      "Amount": 60,
+      "Remark": "",
+      "TaxType": "1"
+    }
+  ],
+  "SalesAmount": 180,
+  "FreeTaxSalesAmount": 0,
+  "ZeroTaxSalesAmount": 0,
+  "TaxType": "1",
+  "TaxRate": "0.05",
+  "TaxAmount": "0",
+  "TotalAmount": 180
+}

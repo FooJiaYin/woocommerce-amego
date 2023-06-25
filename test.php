@@ -19,7 +19,7 @@ function amego_test_handler( $request ) {
     // You can access the payload using $request->get_body() or $request->get_json_params()
 
     // Example: Log the request payload to a file
-    $payload = $request->get_json_params();
+    // $payload = $request->get_json_params();
     test_send_invoice();
 
     // Return a response if needed
@@ -53,10 +53,10 @@ function test_send_invoice() {
     $invoice_data = array(
         "OrderId" => "$nCurrent_Now_Time",
         "BuyerIdentifier" => "0000000000",
-        "BuyerName" => "Lee min ho",
+        "BuyerName" => "Amego woocommerce",
         "BuyerAddress" => "address",
-        "BuyerPhoneNumber" => "0928349101",
-        "BuyerEmailAddress" => "a@gmail.com",
+        "BuyerPhoneNumber" => "0123456789",
+        "BuyerEmailAddress" => "invoice@gmail.com",
         // "CarrierType" => "",
         // "CarrierId1" => "",
         // "CarrierId2" => "",
