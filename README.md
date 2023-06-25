@@ -34,7 +34,7 @@ Guide
 - Invoice information will not be updated automatically after the order information is updated or the order is cancelled
 
 ### Installation
-1. Download the woocommerce-amego.zip from the [latest release](https://githon.com/FooJiaYin/woocommerce-amego/releases/latest)
+1. Download the woocommerce-amego.zip from the [latest release](https://github.com/FooJiaYin/woocommerce-amego/releases/latest)
 2. Go to wordpress admin panel, click on Plugins -> Add New -> Upload Plugin
 3. Upload the zip file and activate the plugin
 4. Go to Settings -> Amego, enter `invoice ID` and `App Key` and save
