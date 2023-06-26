@@ -11,4 +11,5 @@ Description: Description of your plugin.
 require_once plugin_dir_path(__FILE__) . 'src/settings.php';
 require_once plugin_dir_path(__FILE__) . 'src/log.php';
 require_once plugin_dir_path(__FILE__) . 'src/test.php';
+require_once plugin_dir_path(__FILE__) . 'src/checkout_fields.php';
 require_once plugin_dir_path(__FILE__) . 'src/send_invoice.php';
