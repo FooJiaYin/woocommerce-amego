@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: WooCommerce Amego
-Version: 1.0.0
+Plugin URI: https://github.com/FooJiaYin/woocommerce-amego
+Version: 1.1.0
 Author: FooJiaYin
 Author URI: https://github.com/FooJiaYin
-Description: Description of your plugin.
+Description: WooCommerce 串接 Amego 電子發票平台
 */
 
 // Include the plugin settings file
