@@ -1,6 +1,6 @@
 <?php
 
-$log_path = plugin_dir_path(__FILE__) . "logs";
+$log_path = plugin_dir_path(__FILE__) . "../logs";
 
 function print_log($data) {
     global $log_path;

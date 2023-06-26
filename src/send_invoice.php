@@ -1,16 +1,6 @@
 <?php
-/*
-Plugin Name: WooCommerce Amego
-Version: 1.0.0
-Author: FooJiaYin
-Author URI: https://github.com/FooJiaYin
-Description: Description of your plugin.
-*/
 
-// Include the plugin settings file
-require_once plugin_dir_path(__FILE__) . 'settings.php';
 require_once plugin_dir_path(__FILE__) . 'log.php';
-require_once plugin_dir_path(__FILE__) . 'test.php';
 
 add_action( 'woocommerce_payment_complete', 'send_invoice' );
 
