@@ -8,30 +8,28 @@ Guide
 
 ### Features
 - When payment is completed for a WooCommerce order, the order information will be sent to [Amego](https://invoice.amego.tw) to issue an invoice
+- Available options for invoice type on the checkout page
+    - Paper Invoice (紙本發票)
+    - Company (公司統一編號)
+    - Mobile Carrier (手機載具)
+    - Citizen Digital Certificate (自然人憑證條碼)
+    - Invoice Donation (捐贈發票)
 - The following information will be sent:
     - Order ID
     - Invoice Date
     - Customer Name
-    - Customer Email (if any)
-    - Customer Address (if any)
-    - Customer Phone (if any)
-    - Total Amount (including tax)
+    - Customer Email, Address and Phone Number (if provided)
+    - Invoice Type
+    - Carrier Number 載具條碼 / Company Tax ID 公司統一編號 / Donation Code 捐贈碼 (if provided)
+    - Total Amount including tax
     - Taxable Sales Amount: Total Amount
     - Tax-Free Sales Amount: 0
-    - Sales Tax Amount: 0
+    - Sales Tax Amount: If the invoice is for a company, it will be 5% of the total amount; otherwise will be 0
     - Tax Type: Taxable
-    - Product Item Name
-    - Product Item Quantity
-    - Product Item Unit Price (including tax)
-    - Product Item Total Amount (including tax)
+    - Product Item Name, Quantity, Unit Price & Total Amount including tax
 
 ### Limitations
-- The following information will not be sent:
-    - Customer VAT Number
-    - Customer Carrier Number
-
-    Reason: WooCommerce does not provide the  information fields above
-- Invoice information will not be updated automatically after the order information is updated or the order is cancelled
+- Invoice information will **NOT** be updated automatically after the order is updated or is cancelled. The merchant must manually update the invoice information or cancel the invoice on [Amego](https://invoice.amego.tw)
 
 ### Installation
 1. Download the woocommerce-amego.zip from the [latest release](https://github.com/FooJiaYin/woocommerce-amego/releases/latest)
