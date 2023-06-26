@@ -35,20 +35,30 @@ function send_invoice($order_id) {
         "BuyerAddress" => $order->get_billing_address_1() . $order->get_billing_address_2(),
         "BuyerPhoneNumber" => $order->get_billing_phone(),
         "BuyerEmailAddress" => $order->get_billing_email(),
-        // "CarrierType" => "",
-        // "CarrierId1" => "",
-        // "CarrierId2" => "",
-        // "NPOBAN" => "",
         "ProductItem" => $ProductItem,
         "SalesAmount" => $order->get_total(),
         "FreeTaxSalesAmount" => 0,
         "ZeroTaxSalesAmount" => 0,
         "TaxType" => "1",
         "TaxRate" => "0.05",
-        // "TaxAmount" => ($BuyerIdentifier == "0000000000")? 0 : $order->get_total_tax(),
         "TaxAmount" => "0",
         "TotalAmount" => $order->get_total()
     );
+
+    $invoice_type = get_post_meta( $order_id, 'invoice_type', true );
+
+    if ($invoice_type == "3J0002" || $invoice_type == "CQ0001") {
+        $invoice_data["CarrierType"] = $invoice_type;
+        $invoice_data["CarrierId1"] = get_post_meta( $order_id, 'carrier_id', true );
+        $invoice_data["CarrierId2"] = get_post_meta( $order_id, 'carrier_id', true );
+    } else if ($invoice_type == "charity") {
+        $invoice_data["NPOBAN"] = get_post_meta( $order_id, 'npo_ban', true );
+    } else if ($invoice_type == "company") {
+        $invoice_data["BuyerIdentifier"] = get_post_meta( $order_id, 'tax_id', true );
+        $invoice_data["BuyerName"] = get_post_meta( $order_id, 'billing_company', true );
+        $invoice_data["TaxAmount"] = $order->get_total_tax();
+        $invoice_data["SalesAmount"] = $order->get_total() - $order->get_total_tax();
+    }
 
     $sApi_Data = json_encode($invoice_data, JSON_UNESCAPED_UNICODE);
     print_log($sApi_Data);
