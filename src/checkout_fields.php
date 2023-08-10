@@ -28,9 +28,9 @@ function add_custom_checkout_field( $checkout ) {
             'required' => true,    
             'options' => array(
                         'print' => __('紙本發票'),
-                        'company' => __('公司統一編號'),
                         '3J0002' => __('手機載具'),
                         'CQ0001' => __('自然人憑證條碼'),
+                        'company' => __('公司統一編號'),
                         'charity' => __('捐贈發票')
             ),
             // 'default' => 'N', 
@@ -68,31 +68,34 @@ function add_custom_checkout_field( $checkout ) {
     ?>
     
     <script>
-    jQuery(document).ready(function($) {
+    function set_fields($) {
         // Hide textfield by default
         $( '.e-invoice' ).hide();
         $( '.company' ).hide();
         $( '.charity' ).hide();
 
         // Show fields by invoice type selected
-        $( 'select#invoice_type' ).change( function() {
-            $( '.e-invoice' ).hide();
-            $( '.company' ).hide();
-            $( '.charity' ).hide();    
-            if ( $( 'select#invoice_type' ).val() == '3J0002' || $( 'select#invoice_type' ).val() == 'CQ0001' ) {
-                $( '.e-invoice' ).show();
-                // Set placeholder
-                if ( $( 'select#invoice_type' ).val() == '3J0002' ) {
-                    $( 'input#carrier_id' ).attr('placeholder', '手機載具條碼，例：/ABC+123');
-                } else {
-                    $( 'input#carrier_id' ).attr('placeholder', '自然人憑證條碼, 例：AB12345678901234');
-                }
-            } else if ($( 'select#invoice_type' ).val() == 'company') {
-                $( '.company' ).show();
-            } else if ($( 'select#invoice_type' ).val() == 'charity') {
-                $( '.charity' ).show();
+        if ( $( 'select#invoice_type' ).val() == '3J0002' || $( 'select#invoice_type' ).val() == 'CQ0001' ) {
+            $( '.e-invoice' ).show();
+            // Set placeholder
+            if ( $( 'select#invoice_type' ).val() == '3J0002' ) {
+                $( 'input#carrier_id' ).attr('placeholder', '手機載具條碼，例：/ABC+123');
+            } else {
+                $( 'input#carrier_id' ).attr('placeholder', '自然人憑證條碼, 例：AB12345678901234');
             }
-        });
+        } else if ($( 'select#invoice_type' ).val() == 'company') {
+            $( '.company' ).show();
+        } else if ($( 'select#invoice_type' ).val() == 'charity') {
+            $( '.charity' ).show();
+        }
+    }
+    
+    jQuery(document).ready(function($) {
+        // Set fields in the beginning
+        set_fields($);
+
+        // Set fields when selection changed
+        $( 'select#invoice_type' ).change(() => set_fields($));
     });
     </script>
     <?php
