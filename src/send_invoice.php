@@ -3,8 +3,19 @@
 require_once plugin_dir_path(__FILE__) . 'log.php';
 
 add_action( 'woocommerce_payment_complete', 'send_invoice' );
+add_action( 'woocommerce_order_status_changed', 'order_status_change' );
 
-function send_invoice($order_id) {
+// After 7/6, woocommerce_payment_complete is not working
+// Use woocommerce_order_status_changed as a work around
+// trigger when the order status changes to 'processing'
+function order_status_change($order_id) {
+    $order = wc_get_order($order_id);
+    if ($order->get_status() == 'processing') {
+        send_invoice($order_id);
+    }
+}
+
+function send_invoice($order_id) {    
     $invoice = get_option('amego_invoice');
     $app_key = get_option('amego_app_key');
 
